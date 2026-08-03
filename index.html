@@ -19,7 +19,10 @@
     nav a { color: #fff; margin: 0 15px; text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
     nav a:hover { color: #e8c39e; }
 
-    /* Carrossel de Destaque Banner Horizontal */
+    /* Container Principal */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 15px; }
+
+    /* Carrossel Destaque (Topo) */
     .banner-carousel { position: relative; max-width: 1100px; margin: 20px auto; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); background: #fbeee0; }
     .slides { display: flex; transition: transform 0.5s ease-in-out; }
     .slide { min-width: 100%; display: flex; align-items: center; justify-content: space-around; padding: 30px 20px; background: linear-gradient(135deg, #fceada 0%, #f7d6bd 100%); }
@@ -28,23 +31,69 @@
     .slide-content p { font-size: 15px; margin-bottom: 20px; color: #555; }
     .slide img { width: 220px; height: 280px; object-fit: cover; border-radius: 8px; border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
     
-    /* Controles do Carrossel */
     .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; padding: 12px 16px; cursor: pointer; border-radius: 50%; font-size: 18px; }
     .carousel-btn:hover { background: #000; }
     .btn-prev { left: 15px; }
     .btn-next { right: 15px; }
 
-    /* Seções e Titulos */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 15px; }
-    .section-title { text-align: center; font-size: 22px; text-transform: uppercase; margin: 50px 0 25px; letter-spacing: 2px; position: relative; font-weight: 700; }
-    .section-title::after { content: ''; display: block; width: 60px; height: 2px; background: #c2a288; margin: 10px auto 0; }
+    /* Cabeçalho das Seções com Indicador de Scroll */
+    .section-header { text-align: center; margin: 50px 0 15px; }
+    .section-title { font-size: 22px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; display: inline-block; }
+    .section-title::after { content: ''; display: block; width: 60px; height: 2px; background: #c2a288; margin: 8px auto 0; }
+    
+    /* Dica/Seta "Deslize para o lado" */
+    .scroll-hint {
+      font-size: 12px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      font-weight: 600;
+    }
+    .scroll-hint span {
+      display: inline-block;
+      animation: arrow-swipe 1.5s infinite ease-in-out;
+    }
 
-    /* Grids e Cards */
-    .grid-produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 30px; }
-    .card { background: #fff; border: 1px solid #e2d8ce; border-radius: 8px; padding: 15px; text-align: center; transition: transform 0.2s; }
+    @keyframes arrow-swipe {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(6px); }
+    }
+
+    /* Grid Carrossel Horizontal para as Vitrines */
+    .grid-produtos-horizontal { 
+      display: flex; 
+      gap: 20px; 
+      overflow-x: auto; 
+      scroll-snap-type: x mandatory;
+      padding-bottom: 15px; 
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: #c2a288 #f1f1f1;
+    }
+    
+    .grid-produtos-horizontal::-webkit-scrollbar { height: 6px; }
+    .grid-produtos-horizontal::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+    .grid-produtos-horizontal::-webkit-scrollbar-thumb { background: #c2a288; border-radius: 10px; }
+
+    /* Cards ajustados para rolagem lateral */
+    .card { 
+      flex: 0 0 280px; 
+      scroll-snap-align: start;
+      background: #fff; 
+      border: 1px solid #e2d8ce; 
+      border-radius: 8px; 
+      padding: 15px; 
+      text-align: center; 
+      transition: transform 0.2s; 
+    }
     .card:hover { transform: translateY(-3px); }
-    .card img { width: 100%; height: 380px; object-fit: cover; border-radius: 6px; }
-    .card h3 { font-size: 15px; margin: 15px 0 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .card img { width: 100%; height: 360px; object-fit: cover; border-radius: 6px; }
+    .card h3 { font-size: 14px; margin: 15px 0 12px; text-transform: uppercase; letter-spacing: 0.5px; }
 
     /* Animação Pulsante para Botões CTA */
     @keyframes pulse-btn {
@@ -54,7 +103,7 @@
       }
       50% {
         transform: scale(1.03);
-        box-shadow: 0 5px 0 #c2a288, 0 0 0 12px rgba(194, 162, 136, 0);
+        box-shadow: 0 5px 0 #c2a288, 0 0 0 10px rgba(194, 162, 136, 0);
       }
       100% {
         transform: scale(1);
@@ -62,16 +111,15 @@
       }
     }
 
-    /* Botão CTA 3D Sombreado & Pulsante */
     .btn-3d { 
       display: inline-block; 
       width: 100%;
-      padding: 14px 0; 
+      padding: 12px 0; 
       background-color: #fceada; 
       color: #333; 
       text-decoration: none; 
       font-weight: 700; 
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 1px;
       border-radius: 6px; 
       border: 1px solid #dcbfa6;
@@ -82,7 +130,7 @@
     }
     .btn-3d:hover { 
       background-color: #f7deca; 
-      animation: none; /* Pausa a animação ao passar o mouse */
+      animation: none;
       transform: translateY(-2px);
       box-shadow: 0 7px 0 #c2a288;
     }
@@ -109,6 +157,7 @@
     @media (max-width: 768px) {
       .slide { flex-direction: column; text-align: center; }
       .slide-content { max-width: 100%; margin-bottom: 20px; }
+      .card { flex: 0 0 82%; } /* Deixa a próxima foto visível na ponta no celular */
       .newsletter form { flex-direction: column; }
       .newsletter input { width: 100%; }
     }
@@ -132,7 +181,7 @@
 
   <div class="container">
 
-    <!-- BANNER DESTAQUE (CARROSSEL MESCLADO) -->
+    <!-- BANNER DESTAQUE -->
     <div class="banner-carousel">
       <div class="slides" id="slides">
         <div class="slide">
@@ -165,8 +214,11 @@
     </div>
 
     <!-- SEÇÃO 1: VESTIDOS -->
-    <h2 class="section-title" id="vestidos">Curadoria Exclusiva de Vestidos</h2>
-    <div class="grid-produtos">
+    <div class="section-header" id="vestidos">
+      <h2 class="section-title">Curadoria Exclusiva de Vestidos</h2>
+      <div class="scroll-hint">Deslize para ver mais <span>➔</span></div>
+    </div>
+    <div class="grid-produtos-horizontal">
       <div class="card">
         <img src="lookvestido1.png" alt="Vestido Lace & Country">
         <h3>Vestido Lace & Country</h3>
@@ -185,8 +237,11 @@
     </div>
 
     <!-- SEÇÃO 2: SAIAS -->
-    <h2 class="section-title" id="saias">Curadoria Exclusiva de Saias</h2>
-    <div class="grid-produtos">
+    <div class="section-header" id="saias">
+      <h2 class="section-title">Curadoria Exclusiva de Saias</h2>
+      <div class="scroll-hint">Deslize para ver mais <span>➔</span></div>
+    </div>
+    <div class="grid-produtos-horizontal">
       <div class="card">
         <img src="looksaia1.png" alt="Saia Boho Chic Tiered">
         <h3>Saia Boho Chic Tiered</h3>
@@ -205,8 +260,11 @@
     </div>
 
     <!-- SEÇÃO 3: CAMISAS FEMININAS -->
-    <h2 class="section-title" id="camisas">Curadoria Exclusiva de Camisas Femininas</h2>
-    <div class="grid-produtos">
+    <div class="section-header" id="camisas">
+      <h2 class="section-title">Curadoria Exclusiva de Camisas Femininas</h2>
+      <div class="scroll-hint">Deslize para ver mais <span>➔</span></div>
+    </div>
+    <div class="grid-produtos-horizontal">
       <div class="card">
         <img src="lookcamisa1.png" alt="Camisa White Tie-Neck">
         <h3>Camisa White Tie-Neck 100% Algodão</h3>
@@ -225,8 +283,11 @@
     </div>
 
     <!-- SEÇÃO 4: CALÇADOS -->
-    <h2 class="section-title" id="calcados">Curadoria Exclusiva de Calçados</h2>
-    <div class="grid-produtos">
+    <div class="section-header" id="calcados">
+      <h2 class="section-title">Curadoria Exclusiva de Calçados</h2>
+      <div class="scroll-hint">Deslize para ver mais <span>➔</span></div>
+    </div>
+    <div class="grid-produtos-horizontal">
       <div class="card">
         <img src="lookbota1.png" alt="Bota Over Suede">
         <h3>Bota Over Suede Cano Alto</h3>
@@ -261,7 +322,7 @@
     <p>LOOMINY &copy; Todos os direitos reservados. | <a href="#">Sobre Nós</a> | <a href="#">Contato</a></p>
   </footer>
 
-  <!-- SCRIPT DO CARROSSEL -->
+  <!-- SCRIPT DO CARROSSEL DESTAQUE (TOPO) -->
   <script>
     let currentSlide = 0;
     const slides = document.getElementById('slides');
