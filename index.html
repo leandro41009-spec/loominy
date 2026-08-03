@@ -46,7 +46,23 @@
     .card img { width: 100%; height: 380px; object-fit: cover; border-radius: 6px; }
     .card h3 { font-size: 15px; margin: 15px 0 12px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    /* Botão CTA 3D Sombreado */
+    /* Animação Pulsante para Botões CTA */
+    @keyframes pulse-btn {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 5px 0 #c2a288, 0 0 0 0 rgba(194, 162, 136, 0.6);
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow: 0 5px 0 #c2a288, 0 0 0 12px rgba(194, 162, 136, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 5px 0 #c2a288, 0 0 0 0 rgba(194, 162, 136, 0);
+      }
+    }
+
+    /* Botão CTA 3D Sombreado & Pulsante */
     .btn-3d { 
       display: inline-block; 
       width: 100%;
@@ -62,8 +78,14 @@
       box-shadow: 0 5px 0 #c2a288;
       transition: all 0.1s ease;
       cursor: pointer;
+      animation: pulse-btn 2s infinite ease-in-out;
     }
-    .btn-3d:hover { background-color: #f7deca; }
+    .btn-3d:hover { 
+      background-color: #f7deca; 
+      animation: none; /* Pausa a animação ao passar o mouse */
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 #c2a288;
+    }
     .btn-3d:active {
       box-shadow: 0 1px 0 #c2a288;
       transform: translateY(4px);
@@ -117,7 +139,7 @@
           <div class="slide-content">
             <h2>Destaques da Coleção</h2>
             <p>Combine vestidos elegantes com os calçados que são tendência nesta estação.</p>
-            <a href="#vestidos" class="btn-3d" style="width: auto; padding: 10px 20px;">EXPLORAR LOOKS</a>
+            <a href="#vestidos" class="btn-3d" style="width: auto; padding: 10px 20px; animation: none;">EXPLORAR LOOKS</a>
           </div>
           <img src="lookvestido1.png" alt="Vestido Destaque">
         </div>
@@ -125,7 +147,7 @@
           <div class="slide-content">
             <h2>Sofisticação no Dia a Dia</h2>
             <p>Camisas com acabamento em renda e tecido premium para qualquer ocasião.</p>
-            <a href="#camisas" class="btn-3d" style="width: auto; padding: 10px 20px;">VER CAMISAS</a>
+            <a href="#camisas" class="btn-3d" style="width: auto; padding: 10px 20px; animation: none;">VER CAMISAS</a>
           </div>
           <img src="lookcamisa1.png" alt="Camisa Destaque">
         </div>
@@ -133,7 +155,7 @@
           <div class="slide-content">
             <h2>Estilo & Conforto</h2>
             <p>Botas Western e modelos Over em Suede selecionados a dedo.</p>
-            <a href="#calcados" class="btn-3d" style="width: auto; padding: 10px 20px;">VER CALÇADOS</a>
+            <a href="#calcados" class="btn-3d" style="width: auto; padding: 10px 20px; animation: none;">VER CALÇADOS</a>
           </div>
           <img src="lookbota1.png" alt="Bota Destaque">
         </div>
@@ -148,37 +170,37 @@
       <div class="card">
         <img src="lookvestido1.png" alt="Vestido Lace & Country">
         <h3>Vestido Lace & Country</h3>
-        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+        <a href="https://br.shein.com/pdsearch/vestido/?ici=s1`EditSearch`vestido`_fb`d0`PageOthers&search_source=1&search_type=all&source=search&src_identifier=st%3D2%60sc%3Dvestido%60sr%3D0%60ps%3D1&src_identifier_pre_search=%22fc%3DWomen%20Clothing%60sc%3DWomen%20Clothing%60tc%3D0%60oc%3D0%60ps%3Dtab05navbar05%60jc%3DitemPicking_017172961%22&src_module=search&src_tab_page_id=page_select_class1785799133652" class="btn-3d" target="_blank" rel="noopener noreferrer">VER PREÇO</a>
       </div>
       <div class="card">
         <img src="lookvestido2.png" alt="Vestido Print Romântico">
         <h3>Vestido Print Romântico</h3>
-        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+        <a href="https://br.shein.com/pdsearch/vestido/?ici=s1`EditSearch`vestido`_fb`d0`PageOthers&search_source=1&search_type=all&source=search&src_identifier=st%3D2%60sc%3Dvestido%60sr%3D0%60ps%3D1&src_identifier_pre_search=%22fc%3DWomen%20Clothing%60sc%3DWomen%20Clothing%60tc%3D0%60oc%3D0%60ps%3Dtab05navbar05%60jc%3DitemPicking_017172961%22&src_module=search&src_tab_page_id=page_select_class1785799133652" class="btn-3d" target="_blank" rel="noopener noreferrer">VER PREÇO</a>
       </div>
       <div class="card">
         <img src="lookvestido3.png" alt="Vestido Plissado Elegante">
         <h3>Vestido Plissado Elegante</h3>
-        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+        <a href="https://br.shein.com/pdsearch/vestido/?ici=s1`EditSearch`vestido`_fb`d0`PageOthers&search_source=1&search_type=all&source=search&src_identifier=st%3D2%60sc%3Dvestido%60sr%3D0%60ps%3D1&src_identifier_pre_search=%22fc%3DWomen%20Clothing%60sc%3DWomen%20Clothing%60tc%3D0%60oc%3D0%60ps%3Dtab05navbar05%60jc%3DitemPicking_017172961%22&src_module=search&src_tab_page_id=page_select_class1785799133652" class="btn-3d" target="_blank" rel="noopener noreferrer">VER PREÇO</a>
       </div>
     </div>
 
-    <!-- SEÇÃO 2: SAIAS (IMAGENS CORRIGIDAS) -->
+    <!-- SEÇÃO 2: SAIAS -->
     <h2 class="section-title" id="saias">Curadoria Exclusiva de Saias</h2>
     <div class="grid-produtos">
       <div class="card">
         <img src="looksaia1.png" alt="Saia Boho Chic Tiered">
         <h3>Saia Boho Chic Tiered</h3>
-        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+        <a href="https://br.shein.com/pdsearch/saias/?ici=s1`EditSearch`saias`_fb`d0`PageSearchResult&pre_search_content=vestido&search_source=1&search_type=all&source=search&src_identifier=st%3D2%60sc%3Dsaias%60sr%3D0%60ps%3D1&src_identifier_pre_search=%22fc%3DWomen%20Clothing%60sc%3DWomen%20Clothing%60tc%3D0%60oc%3D0%60ps%3Dtab05navbar05%60jc%3DitemPicking_017172961%22&src_module=search&src_tab_page_id=page_search1785799153223" class="btn-3d" target="_blank" rel="noopener noreferrer">VER PREÇO</a>
       </div>
       <div class="card">
         <img src="looksaia2.png" alt="Saia Layered Suede">
         <h3>Saia Layered Suede</h3>
-        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+        <a href="https://br.shein.com/pdsearch/saias/?ici=s1`EditSearch`saias`_fb`d0`PageSearchResult&pre_search_content=vestido&search_source=1&search_type=all&source=search&src_identifier=st%3D2%60sc%3Dsaias%60sr%3D0%60ps%3D1&src_identifier_pre_search=%22fc%3DWomen%20Clothing%60sc%3DWomen%20Clothing%60tc%3D0%60oc%3D0%60ps%3Dtab05navbar05%60jc%3DitemPicking_017172961%22&src_module=search&src_tab_page_id=page_search1785799153223" class="btn-3d" target="_blank" rel="noopener noreferrer">VER PREÇO</a>
       </div>
       <div class="card">
         <img src="looksaia3.png" alt="Saia Off-White Alfaiataria">
         <h3>Saia Off-White Alfaiataria</h3>
-        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+        <a href="https://br.shein.com/pdsearch/saias/?ici=s1`EditSearch`saias`_fb`d0`PageSearchResult&pre_search_content=vestido&search_source=1&search_type=all&source=search&src_identifier=st%3D2%60sc%3Dsaias%60sr%3D0%60ps%3D1&src_identifier_pre_search=%22fc%3DWomen%20Clothing%60sc%3DWomen%20Clothing%60tc%3D0%60oc%3D0%60ps%3Dtab05navbar05%60jc%3DitemPicking_017172961%22&src_module=search&src_tab_page_id=page_search1785799153223" class="btn-3d" target="_blank" rel="noopener noreferrer">VER PREÇO</a>
       </div>
     </div>
 
@@ -188,17 +210,17 @@
       <div class="card">
         <img src="lookcamisa1.png" alt="Camisa White Tie-Neck">
         <h3>Camisa White Tie-Neck 100% Algodão</h3>
-        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+        <a href="https://br.shein.com/pdsearch/camisa%20feminina/?ici=s1`EditSearch`camisa%20feminina`_fb`d0`PageSearchResult&pre_search_content=saias&search_source=1&search_type=all&source=search&src_identifier=st%3D2%60sc%3Dcamisa%20feminina%60sr%3D0%60ps%3D1&src_identifier_pre_search=null&src_module=search&src_tab_page_id=page_search1785799306917" class="btn-3d" target="_blank" rel="noopener noreferrer">VER PREÇO</a>
       </div>
       <div class="card">
         <img src="lookcamisa2.png" alt="Blusa Black Lace-Back Halter">
         <h3>Blusa Black Lace-Back Halter</h3>
-        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+        <a href="https://br.shein.com/pdsearch/camisa%20feminina/?ici=s1`EditSearch`camisa%20feminina`_fb`d0`PageSearchResult&pre_search_content=saias&search_source=1&search_type=all&source=search&src_identifier=st%3D2%60sc%3Dcamisa%20feminina%60sr%3D0%60ps%3D1&src_identifier_pre_search=null&src_module=search&src_tab_page_id=page_search1785799306917" class="btn-3d" target="_blank" rel="noopener noreferrer">VER PREÇO</a>
       </div>
       <div class="card">
         <img src="lookcamisa3.png" alt="Camisa Cream Floral Lace">
         <h3>Camisa Cream Floral Lace Button-Up</h3>
-        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+        <a href="https://br.shein.com/pdsearch/camisa%20feminina/?ici=s1`EditSearch`camisa%20feminina`_fb`d0`PageSearchResult&pre_search_content=saias&search_source=1&search_type=all&source=search&src_identifier=st%3D2%60sc%3Dcamisa%20feminina%60sr%3D0%60ps%3D1&src_identifier_pre_search=null&src_module=search&src_tab_page_id=page_search1785799306917" class="btn-3d" target="_blank" rel="noopener noreferrer">VER PREÇO</a>
       </div>
     </div>
 
@@ -208,17 +230,17 @@
       <div class="card">
         <img src="lookbota1.png" alt="Bota Over Suede">
         <h3>Bota Over Suede Cano Alto</h3>
-        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+        <a href="https://lista.mercadolivre.com.br/botas-feminina#D[A:botas%20feminina]&origin=UNKNOWN&as.comp_t=SUG&as.comp_v=botas&as.comp_id=SUG" class="btn-3d" target="_blank" rel="noopener noreferrer">VER PREÇO</a>
       </div>
       <div class="card">
         <img src="lookbota2.png" alt="Bota Salto Alto GIGIL">
         <h3>Bota Salto Alto Bico Quadrado GIGIL</h3>
-        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+        <a href="https://lista.mercadolivre.com.br/botas-feminina#D[A:botas%20feminina]&origin=UNKNOWN&as.comp_t=SUG&as.comp_v=botas&as.comp_id=SUG" class="btn-3d" target="_blank" rel="noopener noreferrer">VER PREÇO</a>
       </div>
       <div class="card">
         <img src="lookbota3.png" alt="Bota Western Texana VIA ANGEL">
         <h3>Bota Western Texana Denim VIA ANGEL</h3>
-        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+        <a href="https://lista.mercadolivre.com.br/botas-feminina#D[A:botas%20feminina]&origin=UNKNOWN&as.comp_t=SUG&as.comp_v=botas&as.comp_id=SUG" class="btn-3d" target="_blank" rel="noopener noreferrer">VER PREÇO</a>
       </div>
     </div>
 
