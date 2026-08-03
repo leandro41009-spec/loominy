@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOOMINY - Curadoria de Moda & Elegância</title>
+  <style>
+    /* Reset e Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fdfbf7; color: #222; }
+
+    /* Header */
+    header { background-color: #fff; text-align: center; padding: 15px 0; border-bottom: 1px solid #eaeaea; }
+    header img.logo { max-height: 50px; width: auto; display: inline-block; }
+    header .logo-text { font-size: 32px; font-weight: bold; letter-spacing: 3px; color: #111; }
+    
+    /* Menu Navegação */
+    nav { background-color: #000; color: #fff; text-align: center; padding: 12px 0; position: sticky; top: 0; z-index: 100; }
+    nav a { color: #fff; margin: 0 15px; text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    nav a:hover { color: #e8c39e; }
+
+    /* Carrossel de Destaque Banner Horizontal */
+    .banner-carousel { position: relative; max-width: 1100px; margin: 20px auto; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); background: #fbeee0; }
+    .slides { display: flex; transition: transform 0.5s ease-in-out; }
+    .slide { min-width: 100%; display: flex; align-items: center; justify-content: space-around; padding: 30px 20px; background: linear-gradient(135deg, #fceada 0%, #f7d6bd 100%); }
+    .slide-content { max-width: 45%; text-align: left; }
+    .slide-content h2 { font-size: 28px; margin-bottom: 10px; color: #222; }
+    .slide-content p { font-size: 15px; margin-bottom: 20px; color: #555; }
+    .slide img { width: 220px; height: 280px; object-fit: cover; border-radius: 8px; border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    
+    /* Controles do Carrossel */
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; padding: 12px 16px; cursor: pointer; border-radius: 50%; font-size: 18px; }
+    .carousel-btn:hover { background: #000; }
+    .btn-prev { left: 15px; }
+    .btn-next { right: 15px; }
+
+    /* Seções e Titulos */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 15px; }
+    .section-title { text-align: center; font-size: 22px; text-transform: uppercase; margin: 50px 0 25px; letter-spacing: 2px; position: relative; font-weight: 700; }
+    .section-title::after { content: ''; display: block; width: 60px; height: 2px; background: #c2a288; margin: 10px auto 0; }
+
+    /* Grids e Cards */
+    .grid-produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 30px; }
+    .card { background: #fff; border: 1px solid #e2d8ce; border-radius: 8px; padding: 15px; text-align: center; transition: transform 0.2s; }
+    .card:hover { transform: translateY(-3px); }
+    .card img { width: 100%; height: 380px; object-fit: cover; border-radius: 6px; }
+    .card h3 { font-size: 15px; margin: 15px 0 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* Botão CTA 3D Sombreado */
+    .btn-3d { 
+      display: inline-block; 
+      width: 100%;
+      padding: 14px 0; 
+      background-color: #fceada; 
+      color: #333; 
+      text-decoration: none; 
+      font-weight: 700; 
+      font-size: 14px;
+      letter-spacing: 1px;
+      border-radius: 6px; 
+      border: 1px solid #dcbfa6;
+      box-shadow: 0 5px 0 #c2a288; /* Sombra 3D */
+      transition: all 0.1s ease;
+      cursor: pointer;
+    }
+    .btn-3d:hover { background-color: #f7deca; }
+    .btn-3d:active {
+      box-shadow: 0 1px 0 #c2a288;
+      transform: translateY(4px); /* Animação de clique */
+    }
+
+    /* Newsletter */
+    .newsletter { background-color: #fcdfc3; padding: 40px 20px; text-align: center; margin-top: 60px; border-radius: 8px; }
+    .newsletter h3 { margin-bottom: 10px; font-size: 20px; }
+    .newsletter p { margin-bottom: 20px; color: #444; }
+    .newsletter form { display: flex; justify-content: center; gap: 10px; max-width: 500px; margin: 0 auto; }
+    .newsletter input { padding: 12px; width: 70%; border: 1px solid #ccc; border-radius: 4px; outline: none; }
+    .newsletter button { padding: 12px 24px; background: #000; color: #fff; border: none; font-weight: bold; cursor: pointer; border-radius: 4px; transition: 0.2s; }
+    .newsletter button:hover { background: #333; }
+
+    /* Footer Ajustado (Sem políticas/cartões) */
+    footer { background: #000; color: #fff; text-align: center; padding: 25px 20px; font-size: 13px; margin-top: 40px; }
+    footer a { color: #fff; text-decoration: none; margin: 0 12px; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .slide { flex-direction: column; text-align: center; }
+      .slide-content { max-width: 100%; margin-bottom: 20px; }
+      .newsletter form { flex-direction: column; }
+      .newsletter input { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <!-- Usa a logo se existir, senão exibe o texto -->
+    <img src="logoheader.png" alt="LOOMINY" class="logo" onerror="this.style.display='none'; document.getElementById('alt-logo').style.display='block';">
+    <div id="alt-logo" class="logo-text" style="display:none;">LOOMINY</div>
+  </header>
+
+  <!-- MENU DE NAVEGAÇÃO -->
+  <nav>
+    <a href="#vestidos">Vestidos</a>
+    <a href="#saias">Saias</a>
+    <a href="#camisas">Camisas</a>
+    <a href="#calcados">Calçados</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- BANNER DESTAQUE (CARROSSEL MESCLADO) -->
+    <div class="banner-carousel">
+      <div class="slides" id="slides">
+        <!-- Slide 1: Vestido + Calçado -->
+        <div class="slide">
+          <div class="slide-content">
+            <h2>Destaques da Coleção</h2>
+            <p>Combine vestidos elegantes com os calçados que são tendência nesta estação.</p>
+            <a href="#vestidos" class="btn-3d" style="width: auto; padding: 10px 20px;">EXPLORAR LOOKS</a>
+          </div>
+          <img src="lookvestido1.png" alt="Vestido Destaque">
+        </div>
+        <!-- Slide 2: Camisa + Saia -->
+        <div class="slide">
+          <div class="slide-content">
+            <h2>Sofisticação no Dia a Dia</h2>
+            <p>Camisas com acabamento em renda e tecido premium para qualquer ocasião.</p>
+            <a href="#camisas" class="btn-3d" style="width: auto; padding: 10px 20px;">VER CAMISAS</a>
+          </div>
+          <img src="lookcamisa1.png" alt="Camisa Destaque">
+        </div>
+        <!-- Slide 3: Botas e Calçados -->
+        <div class="slide">
+          <div class="slide-content">
+            <h2>Estilo & Conforto</h2>
+            <p>Botas Western e modelos Over em Suede selecionados a dedo.</p>
+            <a href="#calcados" class="btn-3d" style="width: auto; padding: 10px 20px;">VER CALÇADOS</a>
+          </div>
+          <img src="lookbota1.png" alt="Bota Destaque">
+        </div>
+      </div>
+      <button class="carousel-btn btn-prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="carousel-btn btn-next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <!-- SEÇÃO 1: VESTIDOS -->
+    <h2 class="section-title" id="vestidos">Curadoria Exclusiva de Vestidos</h2>
+    <div class="grid-produtos">
+      <div class="card">
+        <img src="lookvestido1.png" alt="Vestido Lace & Country">
+        <h3>Vestido Lace & Country</h3>
+        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+      </div>
+      <div class="card">
+        <img src="lookvestido2.png" alt="Vestido Curadoria Exclusiva">
+        <h3>Vestido Print Romântico</h3>
+        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+      </div>
+      <div class="card">
+        <img src="lookvestido3.png" alt="Vestido Elegante Eventos">
+        <h3>Vestido Plissado Elegante</h3>
+        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 2: SAIAS -->
+    <h2 class="section-title" id="saias">Curadoria Exclusiva de Saias</h2>
+    <div class="grid-produtos">
+      <div class="card">
+        <img src="lookvestido1.png" alt="Saia Boho Chic Tiered">
+        <h3>Saia Boho Chic Tiered</h3>
+        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+      </div>
+      <div class="card">
+        <img src="lookvestido2.png" alt="Saia Layered Vermelha Suede">
+        <h3>Saia Layered Suede</h3>
+        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+      </div>
+      <div class="card">
+        <img src="lookvestido3.png" alt="Saia Off-White Alfaiataria">
+        <h3>Saia Off-White Alfaiataria</h3>
+        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 3: CAMISAS FEMININAS -->
+    <h2 class="section-title" id="camisas">Curadoria Exclusiva de Camisas Femininas</h2>
+    <div class="grid-produtos">
+      <div class="card">
+        <img src="lookcamisa1.png" alt="Camisa White Patterned Tie-Neck">
+        <h3>Camisa White Tie-Neck 100% Algodão</h3>
+        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+      </div>
+      <div class="card">
+        <img src="lookcamisa2.png" alt="Blusa Black Lace-Back Halter">
+        <h3>Blusa Black Lace-Back Halter</h3>
+        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+      </div>
+      <div class="card">
+        <img src="lookcamisa3.png" alt="Camisa Cream Floral Lace">
+        <h3>Camisa Cream Floral Lace Button-Up</h3>
+        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 4: CALÇADOS -->
+    <h2 class="section-title" id="calcados">Curadoria Exclusiva de Calçados</h2>
+    <div class="grid-produtos">
+      <div class="card">
+        <img src="lookbota1.png" alt="Bota Over Suede">
+        <h3>Bota Over Suede Cano Alto</h3>
+        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+      </div>
+      <div class="card">
+        <img src="lookbota2.png" alt="Bota Fem. Salto Alto Bico Quadrado">
+        <h3>Bota Salto Alto Bico Quadrado GIGIL</h3>
+        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+      </div>
+      <div class="card">
+        <img src="lookbota3.png" alt="Bota Western Fem. Texana VIA ANGEL">
+        <h3>Bota Western Texana Denim VIA ANGEL</h3>
+        <a href="SEU_LINK_AFILIADO_AQUI" class="btn-3d" target="_blank">VER PREÇO</a>
+      </div>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter">
+      <h3>Fique por dentro das novidades</h3>
+      <p>Receba a nossa curadoria semanal de moda e ofertas exclusivas no seu e-mail.</p>
+      <form onsubmit="event.preventDefault(); alert('Obrigado por se inscrever!');">
+        <input type="email" placeholder="Digite seu melhor e-mail..." required>
+        <button type="submit">INSCREVER-SE</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>LOOMINY &copy; Todos os direitos reservados. | <a href="#">Sobre Nós</a> | <a href="#">Contato</a></p>
+  </footer>
+
+  <!-- SCRIPT DO CARROSSEL -->
+  <script>
+    let currentSlide = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+
+    function showSlide(index) {
+      if (index >= totalSlides) currentSlide = 0;
+      else if (index < 0) currentSlide = totalSlides - 1;
+      else currentSlide = index;
+      
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function moveSlide(step) {
+      showSlide(currentSlide + step);
+    }
+
+    // Troca automática a cada 5 segundos
+    setInterval(() => {
+      moveSlide(1);
+    }, 5000);
+  </script>
+
+</body>
+</html>
