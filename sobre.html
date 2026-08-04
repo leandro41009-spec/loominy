@@ -7,7 +7,7 @@
   <style>
     /* Reset e Base */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fdfbf7; color: #222; line-height: 1.6; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fdfbf7; color: #222; line-height: 1.7; }
 
     /* Header */
     header { background-color: #fff; text-align: center; padding: 15px 0; border-bottom: 1px solid #eaeaea; }
@@ -22,16 +22,16 @@
     /* Container Principal */
     .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
 
-    /* Seção Hero de Boas-Vindas */
+    /* Seção Hero */
     .about-hero {
       text-align: center;
-      padding: 40px 20px;
+      padding: 45px 20px;
       background: linear-gradient(135deg, #fceada 0%, #f7d6bd 100%);
       border-radius: 12px;
       margin-bottom: 40px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
-    .about-hero h1 { font-size: 32px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; color: #111; }
+    .about-hero h1 { font-size: 30px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; color: #111; }
     .about-hero p { font-size: 17px; color: #444; max-width: 700px; margin: 0 auto; font-style: italic; }
 
     /* Conteúdo Principal */
@@ -59,14 +59,14 @@
       background: #c2a288;
       margin-top: 6px;
     }
-    .about-section p { font-size: 15px; color: #555; margin-bottom: 15px; text-align: justify; }
+    .about-section p { font-size: 15px; color: #444; margin-bottom: 18px; text-align: justify; }
 
-    /* Grid de Pilares / Diferenciais */
+    /* Grid de Pilares */
     .pilares-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      margin-top: 30px;
+      margin: 30px 0;
     }
     .pilar-card {
       background: #fdfbf7;
@@ -76,7 +76,7 @@
       text-align: center;
     }
     .pilar-card .icon { font-size: 28px; margin-bottom: 10px; display: block; }
-    .pilar-card h3 { font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: #222; }
+    .pilar-card h3 { font-size: 15px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: #222; }
     .pilar-card p { font-size: 13.5px; color: #666; text-align: center; margin-bottom: 0; }
 
     /* Footer */
@@ -88,7 +88,7 @@
     @media (max-width: 768px) {
       .container { padding: 20px 15px; }
       .about-hero h1 { font-size: 24px; }
-      .about-section { padding: 20px; }
+      .about-section { padding: 22px; }
     }
   </style>
 </head>
@@ -96,7 +96,7 @@
 
   <!-- HEADER -->
   <header>
-    <a href="index.html">
+    <a href="index.html" style="text-decoration: none;">
       <img src="logoheader.png" alt="LOOMINY" class="logo" onerror="this.style.display='none'; document.getElementById('alt-logo').style.display='block';">
       <div id="alt-logo" class="logo-text" style="display:none;">LOOMINY</div>
     </a>
@@ -115,15 +115,22 @@
 
     <!-- BANNER HERO -->
     <div class="about-hero">
-      <h1>Bem-vinda à LOOMINY</h1>
-      <p>"Sua curadoria definitiva para compor looks elegantes, autênticos e atemporais."</p>
+      <h1>Conheça a LOOMINY</h1>
+      <p>"Sua curadoria definitiva para compor looks elegantes, autênticos e atemporais com facilidade."</p>
     </div>
 
-    <!-- NOSSA HISTÓRIA E PROPÓSITO -->
+    <!-- APRESENTAÇÃO INSTITUCIONAL COMPLETA -->
     <div class="about-section">
-      <h2>Nossa Essência</h2>
-      <p>A <strong>LOOMINY</strong> nasceu com o propósito de simplificar a forma como você descobre e escolhe suas peças de moda. Em um mercado saturado de opções repetitivas, nosso objetivo é filtrar o essencial e apresentar apenas o que realmente combina sofisticação, tendência e excelente custo-benefício.</p>
-      <p>Nossa equipe dedica horas pesquisando e selecionando as melhores combinações de peças — desde vestidos fluídos, saias elegantes e camisas trabalhadas em detalhes até os calçados mais procurados da temporada. Nós fazemos todo o trabalho de curadoria para que você economize tempo e encontre exatamente o seu estilo.</p>
+      <h2>Nossa História & Propósito</h2>
+      <p>
+        A <strong>LOOMINY</strong> foi concebida com um propósito claro e transformador: simplificar o processo de busca e escolha de moda feminina no ambiente digital. Sabemos que navegar pela internet em busca de roupas pode ser uma tarefa exaustiva, repleta de opções repetitivas, fotos desalinhadas e incertezas sobre a qualidade ou o caimento das peças.
+      </p>
+      <p>
+        Nossa missão é agir como o seu filtro pessoal de estilo. Nossa equipe pesquisa incessantemente as principais tendências do universo da moda e seleciona com critério rigoroso as melhores opções em vestidos, saias, camisas e calçados. Focamos em peças que combinam sofisticação, versatilidade e excelente custo-benefício, ajudando você a criar composições marcantes sem perder tempo.
+      </p>
+      <p>
+        Entendemos que a moda vai muito além de vestir roupas; é uma ferramenta potente de autoexpressão e confiança. Seja para o ambiente de trabalho, um evento casual no fim de semana ou uma ocasião especial, nossa curadoria busca inspirar produções harmônicas que valorizem a sua personalidade e presença em qualquer ambiente.
+      </p>
     </div>
 
     <!-- PILARES / DIFERENCIAIS -->
@@ -131,25 +138,29 @@
       <div class="pilar-card">
         <span class="icon">✨</span>
         <h3>Curadoria Rigorosa</h3>
-        <p>Cada look e produto listado passa por uma seleção detalhada de tendência, caimento e estilo.</p>
+        <p>Analisamos tendência, tecido, acabamento e caimento para indicar apenas produtos de alto apelo estético.</p>
       </div>
       <div class="pilar-card">
         <span class="icon">🛍️</span>
-        <h3>Praticidade</h3>
-        <p>Conectamos você diretamente às ofertas mais seguras dos maiores marketplaces e marcas parceiras.</p>
+        <h3>Praticidade & Segurança</h3>
+        <p>Conectamos você diretamente às lojas e marketplaces mais seguros do mercado para uma compra tranquila.</p>
       </div>
       <div class="pilar-card">
         <span class="icon">💡</span>
-        <h3>Inspiração diária</h3>
-        <p>Mais do que roupas, entregamos ideias de combinações versáteis para valorizar sua presença.</p>
+        <h3>Inspiração Constante</h3>
+        <p>Apresentamos combinações inteligentes e versáteis para otimizar o seu guarda-roupa no dia a dia.</p>
       </div>
     </div>
 
     <!-- AVISO DE TRANSPARÊNCIA E AFILIADOS -->
-    <div class="about-section" style="margin-top: 30px;">
-      <h2>Transparência e Confiança</h2>
-      <p>Na <strong>LOOMINY</strong>, acreditamos na transparência total com os nossos leitores e visitantes. Atuamos como uma vitrine de curadoria e plataforma de indicação.</p>
-      <p>Quando você clica nos botões de compra em nosso site, você é direcionado com segurança para plataformas renomadas (como Shein, Mercado Livre e outros parceiros oficiais). Ao concluir uma compra através dos nossos links, podemos receber uma pequena comissão de indicação. Isso <strong>não altera em nada o preço final para você</strong>, mas nos ajuda a manter a plataforma gratuita, atualizada e com novidades diárias.</p>
+    <div class="about-section">
+      <h2>Compromisso com a Transparência</h2>
+      <p>
+        Prezamos pela máxima clareza e honestidade em nossa relação com você. A LOOMINY opera como um portal independente de curadoria de estilo e recomendações de moda.
+      </p>
+      <p>
+        Quando você clica nos botões de "Ver Preço" em nossas vitrines, é redirecionado com total segurança para as plataformas parceiras oficiais (como Shein, Mercado Livre e outras grandes marcas). Ao concluir uma compra por meio dos nossos links, recebemos uma pequena comissão de indicação. Esse processo <strong>não adiciona nenhum custo ao preço do seu produto</strong>, mas nos permite manter o site atualizado, gratuito e repleto de novidades diárias.
+      </p>
     </div>
 
   </div>
